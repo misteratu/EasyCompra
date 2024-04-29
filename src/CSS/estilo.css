@@ -2,7 +2,7 @@
 /* Encabezado */
 header {
 	background-color: #ffffff; /* color de fondo */
-	color: rgba(200, 59, 141, 0.805); /* color de texto */
+	color: rgba(245, 130, 32, 1) /* color de texto */
 }
 
 div.cabecera {
@@ -168,7 +168,7 @@ div.campoForm input{
 }
 
 .botonForm {
-	background-color: #C83B8D; /* color de fondo */
+	background-color: #ffa54f; /* color de fondo */
 	color: white; /* color de texto */
 	padding: 2%; /* relleno */
 	border: none; /* sin borde */
@@ -232,7 +232,7 @@ input.MinMax {
 }
 
 .profile-info-container a, .profile-info-container a:visited{
-	color: rgb(255, 85, 235); /* color de enlace y visitado */
+	color: rgba(245, 130, 32, 1); /* color de enlace y visitado */
 	font-weight: bold; /* peso de la fuente */
 	text-decoration: none; /* sin decoración de texto */
 }

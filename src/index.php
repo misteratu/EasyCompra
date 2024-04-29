@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/formSearch.php';
 
-$tituloPagina = 'EasyChange';
+$tituloPagina = 'EasyCompra';
 
 $formSearch = new FormSearch();
 $formHTML = $formSearch->generateForm(); // Genera el formulario HTML

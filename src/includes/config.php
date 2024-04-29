@@ -6,7 +6,7 @@ require_once __DIR__.'/Aplicacion.php';
  * Parámetros de conexión a la BD
  */
 define('BD_HOST', 'localhost');
-define('BD_NAME', 'EasyChangeDB');
+define('BD_NAME', 'EasyCompraDB');
 define('BD_USER', 'ReaderWriter');
 define('BD_PASS', 'ReaderWriterPassword');
 

@@ -1,11 +1,11 @@
--- Eliminar la base de datos EasyChangeDB si existe
+-- Eliminar la base de datos EasyCompraDB si existe
 DROP DATABASE IF EXISTS EasyCompraDB;
 
--- Crear la base de datos EasyChangeDB
+-- Crear la base de datos EasyCompraDB
 CREATE DATABASE EasyCompraDB;
 
--- Utilizar la base de datos EasyChangeDB
-USE EasyChangeDB;
+-- Utilizar la base de datos EasyCompraDB
+USE EasyCompraDB;
 
 -- Tabla para almacenar información de los usuarios
 CREATE TABLE Usuario (
@@ -45,7 +45,7 @@ SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'ReaderWriter' AND host = 'l
 CREATE USER IF NOT EXISTS 'ReaderWriter'@'localhost' IDENTIFIED BY 'ReaderWriterPassword';
 
 -- Conceder privilegios de lectura y escritura sobre la base de datos EasyChangeDB a este usuario
-GRANT SELECT, INSERT, UPDATE, DELETE ON EasyChangeDB.* TO 'ReaderWriter'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON EasyCompraDB.* TO 'ReaderWriter'@'localhost';
 
 INSERT INTO Categoria (nombre)
 VALUES 
