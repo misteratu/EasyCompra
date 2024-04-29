@@ -43,7 +43,7 @@ class formMisProductos implements Form
                     $htmlContent .= '<h3>' . $producto->Name() . " : " . $producto->Precio() . " €" . '</h3>';
                     $htmlContent .= '<form action="./eliminar.php" method="POST">';
                     $htmlContent .= '<input type="hidden" name="product_id" value="' . $producto->Id() . '">';
-                    $htmlContent .= '<button type="submit" class="botonForm">Eliminar</button>';
+                    $htmlContent .= '<button type="submit" class="botonForm2">Eliminar</button>';
                     $htmlContent .= '</form>';
                     $htmlContent .= '</div>';
 

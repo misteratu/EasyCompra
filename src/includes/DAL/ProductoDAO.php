@@ -140,11 +140,11 @@ class ProductoDAO
         $category = $conn->real_escape_string($categoria);
 
         // Insertar el producto en la BD
-        $sql = "INSERT INTO Producto (dueno_id, name, descripcion, precio, categoria, typo, blobi) VALUES (?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO Producto (dueno_id, name, descripcion, precio, categoria, typo, blobi) VALUES (?,?,?,?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bind_param("issdiiss", $duennoId, $nombre, $description, $price, $category, $typo, $blobi);
+        $stmt->bind_param("issdiss", $duennoId, $nombre, $description, $price, $category, $typo, $blobi);
 
         // Ejecutar la consulta
         $stmt->execute();
@@ -255,7 +255,7 @@ class ProductoDAO
         $stmt = $conn->prepare($sql);
 
         // Enlazar los parámetros
-        $stmt->bind_param("ssdsisss", $nombre, $descripcion, $precio, $categoria, $typo, $blobi, $productId);
+        $stmt->bind_param("ssdssss", $nombre, $descripcion, $precio, $categoria, $typo, $blobi, $productId);
 
         // Ejecutar la consulta
         $stmt->execute();
@@ -294,7 +294,7 @@ class ProductoDAO
         $stmt = $conn->prepare($sql);
 
         // Define the data types of the parameters
-        $stmt->bind_param("ssdsdi", $nombre, $description, $price, $category, $productId);
+        $stmt->bind_param("ssdsi", $nombre, $description, $price, $category, $productId);
 
         // Ejecutar la consulta
         $stmt->execute();

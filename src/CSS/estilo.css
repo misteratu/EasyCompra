@@ -169,6 +169,16 @@ div.campoForm input{
 
 .botonForm {
 	background-color: #ffa54f; /* color de fondo */
+	color: rgb(0, 0, 0); /* color de texto */
+	padding: 2%; /* relleno */
+	border: none; /* sin borde */
+	border-radius: 0.8vh; /* radio de borde */
+	cursor: pointer; /* cursor */
+	margin-top: 2.5%;
+}
+
+.botonForm2 {
+	background-color: #ff0000; /* color de fondo */
 	color: white; /* color de texto */
 	padding: 2%; /* relleno */
 	border: none; /* sin borde */
