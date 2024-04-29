@@ -51,16 +51,6 @@ class FormMostrar implements Form
                     $htmlContent .= '<div class="imagenProduct">';
                     $htmlContent .= '<img src="data:image/' . $producto->Typo(). ';base64,' . base64_encode($producto->Blobi()) . '" alt="' . $producto->Name() . '">';
                     $htmlContent .= '</div>';
-                    if ($producto->Cambio() == 1) {
-                        $htmlContent .= '<div class="intercambioProdcut">';
-                        $htmlContent .= '<p>Este producto se puede intercambiar.</p>';
-                        $htmlContent .= '</div>';
-                    }else{
-                        $htmlContent .= '<div class="intercambioProdcut">';
-                        $htmlContent .= '<p>Este producto NO se puede intercambiar.</p>';
-                        $htmlContent .= '</div>';
-                    }
-                    $htmlContent .= '</div>';
                 }
             } else {
                 $htmlContent .= '<p>No se encontraron productos.</p>';

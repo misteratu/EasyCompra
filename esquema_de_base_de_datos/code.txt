@@ -14,7 +14,6 @@ Table Producto {
   descripcion varchar
   precio decimal
   categoria int [ref: - Categoria.id]
-  cambio bool
   typo VARCHAR 
   blob BLOB
 }

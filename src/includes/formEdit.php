@@ -68,11 +68,6 @@ class FormEdit implements Form
 
                     $htmlContent .= '</select>';
                     $htmlContent .= '</div>';
-                    $htmlContent .= '<div>';
-                    $htmlContent .= '<label for="exchange">Aceptar intercambio:</label><br>';
-                    $checked = $producto->Cambio() == 1 ? 'checked' : '';
-                    $htmlContent .= '<input type="checkbox" id="exchange" name="exchange" value="' . 1 . '" ' . $checked . '>';
-                    $htmlContent .= '</div>';
                     $htmlContent .= '<button type="submit" class="botonForm">Cargar</button>'; // Botón dentro del formulario
                     $htmlContent .= '</div>'; // Cierre del formFields
                     $htmlContent .= '</div>'; // Cierre del mostrarProduct
@@ -102,11 +97,7 @@ class FormEdit implements Form
                 $price = $_POST['price'];
                 $description = $_POST['description'];
                 $category = $_POST['category'];
-                if (isset($_POST['exchange'])) {
-                    $exchange = $_POST['exchange'] == '1' ? 1 : 0;
-                } else {
-                    $exchange = 0;
-                } 
+    
                 $producto_id = $_POST['producto_id'];
                 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
                         // Un archivo ha sido subido, procésalo normalmente
@@ -116,7 +107,7 @@ class FormEdit implements Form
                             $files = $_FILES['image'];
                             
                             // Edita el producto con la nueva imagen
-                            $productResult = ProductService::editProduct($producto_id, $nombre, $description, $price, $category, $exchange, $files);
+                            $productResult = ProductService::editProduct($producto_id, $nombre, $description, $price, $category, $files);
 
                             if ($productResult !== false) {
                                 $htmlContent .= '<p class="correctForm">Producto subido.</p>';
@@ -129,7 +120,7 @@ class FormEdit implements Form
                         }
                 } else {
                     // Ningún archivo ha sido subido, conserva la imagen existente
-                    $productResult = ProductService::editProductWithoutImage($producto_id, $nombre, $description, $price, $category, $exchange);
+                    $productResult = ProductService::editProductWithoutImage($producto_id, $nombre, $description, $price, $category);
 
                     if ($productResult !== false) {
                         $htmlContent .= '<p class="correctForm">Producto actualizado sin cambiar la imagen.</p>';

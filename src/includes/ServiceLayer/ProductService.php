@@ -37,15 +37,14 @@ class ProductService
 	 * @param string $descripcion Descripción del producto.
 	 * @param float $precio Precio del producto.
 	 * @param int $categoria categoría del producto.
-	 * @param bool $cambio boolean para decir si accepta un cambio del producto.
 	 * @param array $file Array con la información del archivo a insertar.
 	 * @return int|false ID del producto insertado si la inserción fue exitosa, false en caso contrario.
 	 */
-	public static function add($dueno_id, $name, $descripcion, $precio, $categoria, $cambio, $file)
+	public static function add($dueno_id, $name, $descripcion, $precio, $categoria, $file)
 	{
 		$typo = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 		$blobi = file_get_contents($file['tmp_name']);
-		return ProductoDAO::InsertProducto($dueno_id, $name, $descripcion, $precio, $categoria, $cambio, $typo, $blobi);
+		return ProductoDAO::InsertProducto($dueno_id, $name, $descripcion, $precio, $categoria, $typo, $blobi);
 	}
 
 
@@ -81,15 +80,14 @@ class ProductService
 	 * @param int $category ID de la categoría del producto.
 	 * @param string $descripcion Descripción del producto.
 	 * @param float $precio Precio del producto.
-	 * @param bool $cambio boolean para decir si accepta un cambio del producto.
 	 * @param string $typo tipo de la imagen.
 	 * @param array $file Array con la información del archivo a insertar.
 	 * @return bool true si la edición fue exitosa, false si falló.
 	 */
-	public static function editProduct($id, $productName, $descripcion, $precio, $category, $cambio, $file){
+	public static function editProduct($id, $productName, $descripcion, $precio, $category, $file){
 		$typo = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 		$blobi = file_get_contents($file['tmp_name']);
-		return ProductoDAO::EditProducto($id, $productName, $descripcion, $precio, $category, $cambio, $typo, $blobi);
+		return ProductoDAO::EditProducto($id, $productName, $descripcion, $precio, $category, $typo, $blobi);
 	}
 
 	/**
@@ -100,15 +98,15 @@ class ProductService
 	 * @param int $category ID de la categoría del producto.
 	 * @param string $descripcion Descripción del producto.
 	 * @param float $precio Precio del producto.
-	 * @param bool $cambio boolean para decir si accepta un cambio del producto.
+
 	 * @return bool true si la edición fue exitosa, false si falló.
 	 */
-	public static function editProductWithoutImage($id, $productName, $descripcion, $precio, $category, $cambio){
+	public static function editProductWithoutImage($id, $productName, $descripcion, $precio, $category){
 		$product = ProductoDAO::GetProducto($id)[0];
 		if ($product->Precio() == $precio && $product->Name() == $productName && $product->Descripcion() == $descripcion && $product->Categoria() == $category && $product->Cambio() == $cambio){
 			return true;
 		} else {
-			return ProductoDAO::EditProductoWithoutImage($id, $productName, $descripcion, $precio, $category, $cambio);
+			return ProductoDAO::EditProductoWithoutImage($id, $productName, $descripcion, $precio, $category);
 		}
 	}
 }

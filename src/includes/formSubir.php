@@ -54,10 +54,6 @@ class FormSubir implements Form
                 <label for="image">Seleccione una imagen para cargar:</label>
                 <input type="file" id="image" name="image" accept="image/*">
             </div>
-            <div class="campoForm">
-                <label for="exchange">Acepta intercambio:</label>
-                <input id="checkBox" type="checkbox" id="exchange" name="exchange" value="1">
-            </div>
             <button type="submit" class="botonForm">Cargar</button>
         </form>
     </div>';
@@ -85,7 +81,6 @@ class FormSubir implements Form
                 $description = $_POST['description'];
                 $price = $_POST['price'];
                 $category = $_POST['category'];
-                $exchange = isset($_POST['exchange']) ? ($_POST['exchange'] == '1' ? 1 : 0) : 0; // Modificado para que el valor sea 0 para falso y 1 para verdadero
                 if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
                     $mime = mime_content_type($_FILES['image']['tmp_name']);
                     $allowedTypes = array('image/jpeg');
@@ -95,7 +90,7 @@ class FormSubir implements Form
 
                         $owner_id = $owner->Id();
 
-                        $productResult = ProductService::add($owner_id, $name, $description, $price, $category, $exchange, $files);
+                        $productResult = ProductService::add($owner_id, $name, $description, $price, $category, $files);
 
                         if ($productResult !== false) {
                             $htmlContent .= '<p class="correctForm">Producto subido.</p>';

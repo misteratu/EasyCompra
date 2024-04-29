@@ -34,7 +34,7 @@ class ProductoDAO
             $productos = array();
             // Recorrer los resultados y crear objetos ProductoDTO
             while ($row = $result->fetch_assoc()) {
-                $producto = new ProductoDTO($row['id'], $row['dueno_id'], $row['name'], $row['descripcion'], $row['precio'], $row['categoria'], $row['cambio'], $row['typo'], $row['blobi']);
+                $producto = new ProductoDTO($row['id'], $row['dueno_id'], $row['name'], $row['descripcion'], $row['precio'], $row['categoria'], $row['typo'], $row['blobi']);
                 $productos[] = $producto;
             }
 
@@ -108,7 +108,7 @@ class ProductoDAO
 
         // Construir un array de objetos ProductoDTO con los datos obtenidos de la base de datos
         while ($row = $result->fetch_assoc()) {
-            $producto = new ProductoDTO($row['id'], $row['dueno_id'], $row['name'], $row['descripcion'], $row['precio'], $row['categoria'], $row['cambio'], $row['typo'], $row['blobi']);
+            $producto = new ProductoDTO($row['id'], $row['dueno_id'], $row['name'], $row['descripcion'], $row['precio'], $row['categoria'], $row['typo'], $row['blobi']);
             $productos[] = $producto;
         }
 
@@ -124,12 +124,11 @@ class ProductoDAO
      * @param string $descripcion Descripción del producto.
      * @param float $precio Precio del producto.
      * @param int $categoria categoría del producto.
-     * @param bool $cambio boolean para decir si accepta un cambio del producto.
      * @param string $typo tipo de la imagen.
      * @param string $blobi imagen del producto.
      * @return int|false ID del producto insertado si la inserción fue exitosa, false en caso contrario.
      */
-    public static function InsertProducto($dueno_id, $name, $descripcion, $precio, $categoria, $cambio, $typo, $blobi)
+    public static function InsertProducto($dueno_id, $name, $descripcion, $precio, $categoria, $typo, $blobi)
     {
         // Obtener la conexión mysqli
         $conn = Aplicacion::getInstance()->getConexionBd();
@@ -141,11 +140,11 @@ class ProductoDAO
         $category = $conn->real_escape_string($categoria);
 
         // Insertar el producto en la BD
-        $sql = "INSERT INTO Producto (dueno_id, name, descripcion, precio, categoria, cambio, typo, blobi) VALUES (?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO Producto (dueno_id, name, descripcion, precio, categoria, typo, blobi) VALUES (?,?,?,?,?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
 
-        $stmt->bind_param("issdiiss", $duennoId, $nombre, $description, $price, $category, $cambio, $typo, $blobi);
+        $stmt->bind_param("issdiiss", $duennoId, $nombre, $description, $price, $category, $typo, $blobi);
 
         // Ejecutar la consulta
         $stmt->execute();
@@ -192,7 +191,7 @@ class ProductoDAO
 
         // Construir un array de objetos ProductoDTO con los datos obtenidos de la base de datos
         while ($row = $result->fetch_assoc()) {
-            $producto = new ProductoDTO($row['id'], $row['dueno_id'], $row['name'], $row['descripcion'], $row['precio'], $row['categoria'], $row['cambio'], $row['typo'], $row['blobi']);
+            $producto = new ProductoDTO($row['id'], $row['dueno_id'], $row['name'], $row['descripcion'], $row['precio'], $row['categoria'], $row['typo'], $row['blobi']);
             $productos[] = $producto;
         }
 
@@ -237,12 +236,11 @@ class ProductoDAO
      * @param string $descripcion Descripción del producto.
      * @param float $precio Precio del producto.
      * @param int $categoria categoría del producto.
-     * @param bool $cambio boolean para decir si accepta un cambio del producto.
      * @param string $typo tipo de la imagen.
      * @param string $blobi imagen del producto.
      * @return bool true si la edición fue exitosa, false en caso contrario.
      */
-    public static function EditProducto($productId, $name, $descripcion, $precio, $categoria, $cambio, $typo, $blobi)
+    public static function EditProducto($productId, $name, $descripcion, $precio, $categoria, $typo, $blobi)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
@@ -250,15 +248,14 @@ class ProductoDAO
         $descripcion = $conn->real_escape_string($descripcion);
         $precio = $conn->real_escape_string($precio);
         $categoria = $conn->real_escape_string($categoria);
-        $cambio = $conn->real_escape_string($cambio);
         
         // Actualizar el producto en la BD
-        $sql = "UPDATE Producto SET name = ?, descripcion = ?, precio = ?, categoria = ?, cambio = ?, typo = ?, blobi = ? WHERE id = ?";
+        $sql = "UPDATE Producto SET name = ?, descripcion = ?, precio = ?, categoria = ?, typo = ?, blobi = ? WHERE id = ?";
 
         $stmt = $conn->prepare($sql);
 
         // Enlazar los parámetros
-        $stmt->bind_param("ssdsisss", $nombre, $descripcion, $precio, $categoria, $cambio, $typo, $blobi, $productId);
+        $stmt->bind_param("ssdsisss", $nombre, $descripcion, $precio, $categoria, $typo, $blobi, $productId);
 
         // Ejecutar la consulta
         $stmt->execute();
@@ -280,10 +277,9 @@ class ProductoDAO
      * @param string $descripcion Descripción del producto.
      * @param float $precio Precio del producto.
      * @param int $categoria categoría del producto.
-     * @param bool $cambio boolean para decir si accepta un cambio del producto.
      * @return bool true si la edición fue exitosa, false en caso contrario.
      */
-    public static function EditProductoWithoutImage($productId, $name, $descripcion, $precio, $categoria, $cambio)
+    public static function EditProductoWithoutImage($productId, $name, $descripcion, $precio, $categoria)
     {
         $conn = Aplicacion::getInstance()->getConexionBd();
 
@@ -293,12 +289,12 @@ class ProductoDAO
         $category = $conn->real_escape_string($categoria);
 
         // Insertar el producto en la BD
-        $sql = "UPDATE Producto SET name = ?, descripcion = ?, precio = ?, categoria = ?, cambio = ? WHERE id = ?";
+        $sql = "UPDATE Producto SET name = ?, descripcion = ?, precio = ?, categoria = ?, WHERE id = ?";
 
         $stmt = $conn->prepare($sql);
 
         // Define the data types of the parameters
-        $stmt->bind_param("ssdsdi", $nombre, $description, $price, $category, $cambio, $productId);
+        $stmt->bind_param("ssdsdi", $nombre, $description, $price, $category, $productId);
 
         // Ejecutar la consulta
         $stmt->execute();

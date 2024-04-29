@@ -1,8 +1,8 @@
 -- Eliminar la base de datos EasyChangeDB si existe
-DROP DATABASE IF EXISTS EasyChangeDB;
+DROP DATABASE IF EXISTS EasyCompraDB;
 
 -- Crear la base de datos EasyChangeDB
-CREATE DATABASE EasyChangeDB;
+CREATE DATABASE EasyCompraDB;
 
 -- Utilizar la base de datos EasyChangeDB
 USE EasyChangeDB;
@@ -28,7 +28,6 @@ CREATE TABLE Producto (
   descripcion VARCHAR(255), -- Descripción del producto
   precio DECIMAL, -- Precio del producto
   categoria int, -- id de la categoría del producto
-  cambio BOOLEAN, -- Indicador de si el producto está disponible para cambio
   typo VARCHAR(255), -- Tipo de archivo de la imagen
   blobi longblob -- Datos binarios de la imagen
 );

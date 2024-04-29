@@ -8,7 +8,6 @@ class ProductoDTO
     private $descripcion; // Descripción del producto
     private $precio; // Precio del producto
     private $categoria; // Nombre de la categoría del producto
-    private $cambio; // Estado del producto (en cambio o no)
     private $typo; // Tipo de la imagen
     private $blobi; // Imagen del producto
 
@@ -21,11 +20,10 @@ class ProductoDTO
 	 * @param string $descripcion Descripción del producto.
 	 * @param float $precio Precio del producto.
 	 * @param int $categoria ID de la categoría del producto.
-	 * @param bool $cambio Estado del producto (true si está en cambio, false si no lo está).
      * @param string $typo tipo de la imagen.
      * @param longblob $blobi imagen del producto.
 	 */
-    public function __construct($id, $dueno_id, $name, $descripcion, $precio, $categoria, $cambio, $typo, $blobi)
+    public function __construct($id, $dueno_id, $name, $descripcion, $precio, $categoria, $typo, $blobi)
     {
         $this->id = $id;
         $this->dueno_id = $dueno_id;
@@ -33,7 +31,6 @@ class ProductoDTO
         $this->descripcion = $descripcion;
         $this->precio = $precio;
         $this->categoria = $categoria;
-        $this->cambio = $cambio;
         $this->typo = $typo;
         $this->blobi = $blobi;
     }
@@ -96,16 +93,6 @@ class ProductoDTO
     public function Categoria()
     {
         return $this->categoria;
-    }
-
-    /**
-	 * Método getter para obtener el estado del producto (en cambio o no).
-	 * 
-	 * @return bool Estado del producto (true si está en cambio, false si no lo está).
-	 */
-    public function Cambio()
-    {
-        return $this->cambio;
     }
 
     /**
