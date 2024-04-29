@@ -1,0 +1,542 @@
+/* CABECERA */
+/* Encabezado */
+header {
+	background-color: #ffffff; /* color de fondo */
+	color: rgba(200, 59, 141, 0.805); /* color de texto */
+}
+
+div.cabecera {
+	width: auto; /* ancho automático */
+	display: grid; /* mostrar como flexbox */
+	grid-template-columns: 10% 90%;
+	grid-template-rows: 85% 15%;
+	grid-template-areas: 
+						"logo nombrePagina"
+						"logo login";
+}
+
+
+div.logo {
+	grid-area: logo;
+	height: max-content;
+}
+
+div.logo img{
+	width: 100%;
+	height: 100%;
+}
+
+div.nombre {
+	grid-area: nombrePagina;
+	display: flex;
+	align-items: center;
+}
+
+div.nombre h1 {
+	width: 100%; /* ancho */
+	height: auto; /* altura automática */
+	text-align: center; /* alinear texto al centro */
+}
+
+div.log {
+	grid-area: login;
+	text-align: right; /* alinear texto a la derecha */
+}
+
+div.log a, div.log a:visited{
+	color: rgb(0, 146, 90); /* color de enlace y visitado */
+	font-weight: bold; /* peso de la fuente */
+	text-decoration: none; /* sin decoración de texto */
+}
+
+/* BARRA LATERAL IZQ */
+/* Barra lateral izquierda */
+nav {
+	float: left; /* flotar a la izquierda */
+	clear: both; /* limpiar flotado */
+	padding: 1.5%; /* relleno */
+	width: 15%; /* ancho */
+	height: max-content; /* altura máxima */
+	background-color: #aaa9a9; /* color de fondo */
+	border-top-left-radius: 5vh; /* radio de borde superior izquierdo */
+}
+
+nav ul{
+	list-style: none;
+}
+
+nav li{
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+nav li:hover{
+	background-color: rgba(118, 152, 255, 0.3);
+}
+
+nav a, nav a:visited {
+	color: rgb(0, 146, 90); /* color de enlace y visitado */
+	font-weight: bold; /* peso de la fuente */
+	text-decoration: none; /* sin decoración de texto */
+} 
+
+nav a:hover {
+	color: rgb(3, 95, 112); /* color de enlace al pasar el mouse */
+	text-decoration: none; /* subrayado al pasar el mouse */
+} 
+
+/* PRINCIPAL */
+/* Principal */
+main {
+	float: left; /* flotar a la izquierda */
+	padding: 2.5%; /* relleno */
+	width: 77%; /* ancho */
+	height: max-content; /* altura máxima */
+	background-color: rgb(198, 198, 198); /* color de fondo */
+	border-top-right-radius: 5vh; /* radio de borde superior derecho */
+}
+
+
+div.product-row {
+    display: flex;
+	flex-wrap: nowrap;
+    text-align: left;
+    align-items: center;
+}
+
+div.product {
+	max-width: calc(100%/3);
+	height: auto;
+    flex-grow: 1; /* crecer con flexbox */
+    text-align: center; /* alinear texto al centro */
+}
+
+div.product img {
+    width: 80%;
+    height: 50vh;
+    margin: 10%;
+	border-radius: 2vh;
+}
+
+div.product h3{
+	max-height: 3.2vh;
+	overflow: hidden;
+}
+
+
+/*FORMULARIOS*/
+
+div.formulario {
+	text-align: center; /* alinear texto al centro */
+}
+
+
+div.formulario form {
+	width: 50%; /* ancho */
+	margin: auto; /* margen automático */
+	text-align: left; /* alinear texto a la izquierda */
+}
+
+
+div.campoForm label {
+	display: block; /* mostrar como bloque */
+}
+
+div.campoForm input{
+	width: 100%; 
+	padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+#category {
+	width: 30%; /* ancho */
+	margin-left: 1%; /* margen izquierdo */
+}
+
+#descripcion {
+	width: 100%; 
+	padding-top: 1%;
+    padding-bottom: 4%;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+#checkBox {
+	width: auto; /* ancho automático */
+}
+
+.botonForm {
+	background-color: #C83B8D; /* color de fondo */
+	color: white; /* color de texto */
+	padding: 2%; /* relleno */
+	border: none; /* sin borde */
+	border-radius: 0.8vh; /* radio de borde */
+	cursor: pointer; /* cursor */
+	margin-top: 2.5%;
+}
+
+.errorForm {
+	color: red; /* color rojo */
+}
+
+.correctForm {
+	color: green; /* color verde */
+}
+
+/* FORMULARIO DE BÚSQUEDA */
+/* Formulario de búsqueda */
+#searchForm {
+	width: 100%; /* ancho */
+	display: inline-flex; /* mostrar como flexbox en línea */
+	justify-content: space-between;
+}
+
+#searchBar {
+	width: 55%;
+}
+
+input.MinMax {
+	width: 10%; /* calcular ancho */
+	margin-left: 1%; /* margen izquierdo */
+}
+
+#Min {
+	margin-right: 1%;; /* margen derecho */
+}
+
+#searchButton {
+	width: 6%;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#searchButton span {
+	font-size: 1.5em; /* tamaño de fuente */
+}
+
+.profile-container {
+    display: flex; /* mostrar como flexbox */
+    align-items: center; /* alinear elementos al centro */
+}
+
+.profile-image-container {
+    width: 20%; /* ancho */
+	height: 33vh;
+}
+
+.profile-info-container {
+    flex-grow: 1; /* crecer con flexbox */
+}
+
+.profile-info-container a, .profile-info-container a:visited{
+	color: rgb(255, 85, 235); /* color de enlace y visitado */
+	font-weight: bold; /* peso de la fuente */
+	text-decoration: none; /* sin decoración de texto */
+}
+
+.profile-image {
+    width: 100%; /* ancho */
+    height: auto; /* altura automática */
+    max-width: 97%; /* ancho máximo */
+    max-height: 100%; /* altura máxima */
+    object-fit: cover; /* ajustar la imagen */
+    border-radius: 50%; /* radio de borde */
+}
+
+/* Color rojo para mensajes de error */
+.error {
+    color: red; /* color rojo */
+}
+
+/* Color verde para mensajes de éxito */
+.success {
+    color: green; /* color verde */
+}
+
+/* MOSTRAR UN PRODUCTO */
+
+div.mostrarProduct h1 {
+	grid-area: nombreProduct;
+	margin: 0%;
+	margin-left: 2%;
+	display: flex;
+	align-items: center;
+}
+
+div.imagenProduct {
+	grid-area: fotoProduct;
+	height: 60vh;
+}
+
+div.imagenProduct img {
+	width: 100%;
+	height:100%;
+}
+
+div.descripcionProduct {
+	grid-area: descripcion;
+	margin-left: 2%;
+}
+
+div.intercambioProdcut {
+	grid-area: intercambio;
+}
+
+div.mostrarProduct h3 {
+	grid-area: precioProduct;
+	margin: 0%;
+	margin-left: 2%;
+	display: flex;
+	align-items: center;
+}
+
+
+div.mostrarProduct {
+	display: grid;
+	grid-template-columns: 30% 70%;
+	grid-template-rows: 9vh 4vh auto auto;
+	grid-template-areas: 
+					"fotoProduct nombreProduct"
+					"fotoProduct precioProduct"
+					"fotoProduct descripcion"
+					"intercambio descripcion";
+}
+
+/* ADMINISTRADOR */
+
+div.adminForms form{
+	width: 50%;
+	margin: 1%;
+}
+
+@media screen and (max-width: 480px) {
+	body{
+		margin: 0%;
+		display: flex;
+		flex-flow: column;
+	}
+
+	main{
+		width: 95%;
+		border-top-right-radius: 0vh;
+		order: 3;
+	}
+	/*CABECERA*/
+
+	header {
+		order: 1;
+	}
+
+	div.nombre h1{
+		font-size: 1.8em;
+	}
+
+	div.log {
+		font-size: 0.8em;
+	}
+
+	div.cabecera {
+		grid-template-columns: 25% 75%;
+	}
+
+
+	/*MENU NAV*/
+	nav {
+		height: 4vh;
+		display:flex;
+		width: 97%;
+		border-top-left-radius: 0vh;
+		align-items: center;
+		order: 2;
+	}
+
+	nav ul{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		padding: 1.5%;
+	}
+
+	nav li{
+		display: inline-block;
+		font-size: 0.8em;
+	}
+
+	/*PRODUCTOS INDEX*/
+	div.product-row {
+		width: 100%;
+	}
+
+	div.product h3{
+		font-size: 0.5em;
+		max-height: 1.5vh;
+	}
+	div.product img{
+		height: 25vh;
+		border-radius: 0.8vh;
+	}
+
+	/*BUSCARDOR PRODUCTOS*/
+	#searchButton {
+		padding: 0%;
+	}
+
+	#searchButton span{
+		font-size: 0.8em;
+	}
+
+	/* MOSTRAR UN SOLO PRODUCTO */
+
+	div.imagenProduct {
+		height: 30vh;
+	}
+
+	div.mostrarProduct h1 {
+		font-size: 1.5em;
+	}
+
+	div.mostrarProduct {
+		grid-template-rows: 13vh 4vh auto auto;
+		
+	}
+
+	/* PRODUCTOS */
+
+	div.formulario form{
+		width: 70%
+	}
+
+	div.campoForm input{
+		padding: 2%;
+	}
+
+	.botonForm{
+		padding: 3%;
+		margin-top: 2%;
+	}
+
+	#descripcion {
+		padding: 2%;
+		padding-bottom: 5%;
+	}
+
+	#category{
+		width: 65%;
+	}
+
+	/* PERFIL */
+
+	.profile-image-container {
+		width: 40%;
+		height: 25vh;
+	}
+
+	/* ADMINISTRADOR */
+
+	div.adminForms form{
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	body{
+		margin: 0%;
+		display: flex;
+		flex-flow: column;
+	}
+
+	main{
+		width: 95%;
+		border-top-right-radius: 0vh;
+		order: 3;
+	}
+
+	/*CABECERA*/
+
+	header {
+		order: 1;
+	}
+
+	div.cabecera {
+		grid-template-columns: 15% 85%;
+	}
+
+	/*MENU NAV*/
+	nav {
+		height: 4vh;
+		display:flex;
+		width: 97%;
+		border-top-left-radius: 0vh;
+		align-items: center;
+		order: 2;
+	}
+
+	nav ul{
+		width: 97%;
+		display: flex;
+		justify-content: space-between;
+		list-style: none;
+		padding: 1.5%;
+	}
+
+	nav li{
+		display: inline-block;
+	}
+
+	
+	/*PRODUCTOS INDEX*/
+	div.product-row {
+		width: 100%;
+	}
+
+	div.product h3{
+		font-size: 0.8em;
+	}
+	div.product img{
+		height: 35vh;
+		border-radius: 1vh;
+	}
+
+	/*BUSCARDOR PRODUCTOS*/
+
+	#searchButton span{
+		font-size: 1em;
+	}
+
+	/*MOSTRAR PRODUCTO*/
+
+	div.mostrarProduct {
+		grid-template-rows: 11vh 4vh auto auto;
+	}
+
+	/* FORMULARIOS */
+
+	div.formulario form{
+		width: 60%
+	}
+	
+	.botonForm{
+		padding: 2.25%;
+	}
+
+	#category{
+		width: 35%;
+	}
+
+	/* PERFIL*/
+
+	.profile-image-container {
+		width: 30%;
+	}
+
+	/* ADMINISTRADOR */
+
+	div.adminForms form{
+		width: 60%;
+	}
+}

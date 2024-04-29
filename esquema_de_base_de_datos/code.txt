@@ -1,0 +1,25 @@
+Table Usuario {
+  id integer [primary key]
+  username varchar
+  correo varchar
+  descripcion varchar
+  typo VARCHAR 
+  blob BLOB
+}
+
+Table Producto {
+  id integer [primary key]
+  dueno_id integer [ref: - Usuario.id]
+  name varchar
+  descripcion varchar
+  precio decimal
+  categoria int [ref: - Categoria.id]
+  cambio bool
+  typo VARCHAR 
+  blob BLOB
+}
+
+Table Categoria {
+  id integer [primary key]
+  name varchar
+}
