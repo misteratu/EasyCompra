@@ -44,12 +44,17 @@ class FormMostrar implements Form
                 foreach($productos as $producto) {
                     $htmlContent .= '<div class="mostrarProduct">';
                     $htmlContent .= '<h1>' . $producto->Name() . '</h1>';
+                    $htmlContent .= '<div class="imagenProduct">';
+                    $htmlContent .= '<img src="data:image/' . $producto->Typo(). ';base64,' . base64_encode($producto->Blobi()) . '" alt="' . $producto->Name() . '">';
+                    $htmlContent .= '</div>';
                     $htmlContent .= '<div class="descripcionProduct">';
                     $htmlContent .= '<p>'.$producto->Descripcion(). '</p>';
                     $htmlContent .= '</div>';
                     $htmlContent .= '<h3>Precio: ' . $producto->Precio() . ' €</h3>';
-                    $htmlContent .= '<div class="imagenProduct">';
-                    $htmlContent .= '<img src="data:image/' . $producto->Typo(). ';base64,' . base64_encode($producto->Blobi()) . '" alt="' . $producto->Name() . '">';
+                    $htmlContent .= '<form method="get" action="comprar.php">';
+                    $htmlContent .= '<input type="hidden" name="product_id" value="' . $producto->Id() . '">';
+                    $htmlContent .= '<button type="submit" class="botonForm">Comprar</button>';
+                    $htmlContent .= '</form>';
                     $htmlContent .= '</div>';
                 }
             } else {
