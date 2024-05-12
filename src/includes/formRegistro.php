@@ -59,10 +59,6 @@ class FormRegistro implements Form
                     <input type="file" id="foto" name="foto">
                     <p class="errorForm">{$erroresCampos['foto']}</p>
                 </div>
-                <div class="campoForm">
-                    <label for="administrador">Administrador:</label>
-                    <input id="checkBox" type="checkbox" id="administrador" name="administrador"> Administrador
-                </div>
                 <button class="botonForm" type="submit">Registrarse</button>
             </form>
         </div>
@@ -87,7 +83,7 @@ class FormRegistro implements Form
             $this->password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $this->password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $this->descripcion = filter_input(INPUT_POST, 'descripcion', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $this->administrador = isset($_POST["administrador"]) ? 1 : 0;
+            $this->administrador = 0;
 
             //Comprobamos datos
             $this->comprobarNombreUsuario($this->nombreUsuario);
