@@ -12,7 +12,7 @@ session_destroy();
 
 require_once __DIR__ . '/includes/config.php';
 
-$tituloPagina = 'EasyChange';
+$tituloPagina = 'EasyCompra';
 
 $contenidoPrincipal = <<<EOS
 <h1>Hasta pronto!</h1>

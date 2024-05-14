@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/formPerfil.php';
 
-$tituloPagina = 'EasyChange';
+$tituloPagina = 'EasyCompra';
 
 $formPerfil = new FormPerfil();
 $formHTML = $formPerfil->generateForm(); // Genera el formulario HTML
