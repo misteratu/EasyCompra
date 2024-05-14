@@ -44,7 +44,7 @@ SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'ReaderWriter' AND host = 'l
 -- Si el usuario no existe, entonces crearlo
 CREATE USER IF NOT EXISTS 'ReaderWriter'@'localhost' IDENTIFIED BY 'ReaderWriterPassword';
 
--- Conceder privilegios de lectura y escritura sobre la base de datos EasyChangeDB a este usuario
+-- Conceder privilegios de lectura y escritura sobre la base de datos EasyCompraDB a este usuario
 GRANT SELECT, INSERT, UPDATE, DELETE ON EasyCompraDB.* TO 'ReaderWriter'@'localhost';
 
 INSERT INTO Categoria (nombre)
